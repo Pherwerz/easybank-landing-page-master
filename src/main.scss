@@ -1,6 +1,32 @@
+:root {
+  --gradient: linear-gradient(to right, hsl(136, 65%, 51%), hsl(192, 70%, 51%));
+  --gradient-hover: linear-gradient(
+    to right,
+    hsl(136, 65%, 70%),
+    hsl(192, 70%, 70%)
+  );
+  --footer-bg: hsl(233, 26%, 24%);
+  --header-bottom-bg: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
+  --about-bg: hsl(220, 16%, 96%);
+  --small-text-color: hsl(233, 26%, 74%);
+}
+
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+
+  @media only screen and (max-width: 75em) {
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: 62.5em) {
+    font-size: 40%;
+  }
+
+  @media only screen and (max-width: 47em) {
+    font-size: 30%;
+  }
 }
 
 *,
@@ -13,8 +39,43 @@ html {
 
 body {
   box-sizing: border-box;
-  font-size: 1.6rem;
-  font-family: sans-serif;
-  font-weight: 300;
-  line-height: 1.5;
+  font-size: 1.8rem;
+  font-family: 'Public Sans', sans-serif;
+  line-height: 1.3;
+  color: var(--small-text-color);
 }
+
+.container {
+  width: 110rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media only screen and (max-width: 37.5em) {
+    flex-direction: column;
+    justify-content: center;
+    width: 80rem;
+  }
+}
+
+button:focus {
+  outline: none;
+}
+
+.except {
+  flex-direction: row;
+  justify-content: space-between;
+
+  & > button.btn {
+    @media only screen and (max-width: 37.5em) {
+      display: none;
+    }
+  }
+}
+
+@import './scss/header';
+@import './scss/btn';
+@import './scss/about';
+@import './scss/latest';
+@import './scss/footer';
